@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Ali — Data Science & ML Engineer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0a0e14',
+          panel: '#10151f',
+          panel2: '#141a26',
+          slate: {
+            accent: '#5b6ee8'
+          },
+          cyan: {
+            accent: '#3ee6d8'
+          },
+          hair: '#1f2836'
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0e14;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(91,110,232,0.10), transparent 40%),
+      radial-gradient(circle at 85% 0%, rgba(62,230,216,0.07), transparent 35%);
+  }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  .font-body { font-family: 'Inter', sans-serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  .grad-text {
+    background: linear-gradient(100deg, #8b9bff 0%, #3ee6d8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .badge {
+    border: 1px solid #263047;
+    background: rgba(20,26,38,0.6);
+  }
+
+  .card {
+    background: linear-gradient(180deg, #141a26 0%, #10151f 100%);
+    border: 1px solid #1f2836;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .card:hover {
+    border-color: #3ee6d8;
+    transform: translateY(-4px);
+  }
+
+  .timeline-dot {
+    box-shadow: 0 0 0 4px rgba(91,110,232,0.15);
+  }
+
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0%;
+    height: 1px;
+    background: #3ee6d8;
+    transition: width .2s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .cta-primary {
+    background: linear-gradient(100deg, #5b6ee8, #3ee6d8);
+  }
+
+  ::selection { background: #3ee6d8; color: #0a0e14; }
+
+  #mobile-menu { transition: max-height .3s ease, opacity .3s ease; }
+
+  .skill-pill {
+    border: 1px solid #263047;
+    background: #10151f;
+  }
+  .skill-pill:hover { border-color: #5b6ee8; }
+
+  .profile-ring {
+    background: conic-gradient(from 180deg, #5b6ee8, #3ee6d8, #5b6ee8);
+    box-shadow: 0 0 24px 2px rgba(62,230,216,0.25), 0 0 60px 10px rgba(91,110,232,0.12);
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #3ee6d8;
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body class="font-body text-slate-200 antialiased">
+
+<!-- Header -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#0a0e14]/80 border-b border-[#1f2836]">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#top" class="font-display font-semibold text-lg text-slate-100">
+      Ahmed <span class="grad-text">Ali</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 font-mono text-sm text-slate-300">
+      <a href="#about" class="nav-link hover:text-white">About</a>
+      <a href="#experience" class="nav-link hover:text-white">Experience</a>
+      <a href="#projects" class="nav-link hover:text-white">Projects</a>
+      <a href="#education" class="nav-link hover:text-white">Education</a>
+      <a href="#skills" class="nav-link hover:text-white">Skills</a>
+      <a href="#contact" class="nav-link hover:text-white">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="#contact"
+         class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium text-ink cta-primary hover:opacity-90 transition">
+        Get In Touch
+      </a>
+      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden text-slate-200">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden opacity-0 border-t border-[#1f2836]">
+    <nav class="flex flex-col px-6 py-4 gap-4 font-mono text-sm text-slate-300 bg-[#0a0e14]">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#education" class="mobile-link">Education</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero / About -->
+  <section id="about" class="relative pt-40 pb-24 px-6 overflow-hidden">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_auto] gap-14 items-center">
+
+      <div>
+        <p class="font-mono text-cyan-accent text-sm tracking-wide mb-4">Hi, I'm Ahmed —</p>
+        <h1 class="font-display text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-semibold text-slate-100 max-w-2xl">
+          Data Science &amp; ML Engineer
+          <span class="block grad-text">Data Analyst</span>
+        </h1>
+        <p class="mt-6 text-slate-400 max-w-xl leading-relaxed">
+          Data Science and Machine Learning Trainee with a strong analytical foundation in Information Systems and competitive programming. Experienced in end-to-end ML workflows, computer vision, NLP, and executive Power BI/Dash dashboards.
+        </p>
+
+        <div class="mt-7 flex flex-wrap gap-3">
+          <span class="badge px-3 py-1.5 rounded-full text-xs font-mono text-slate-300">🏆 ECPC Finals Qualifier</span>
+          <span class="badge px-3 py-1.5 rounded-full text-xs font-mono text-slate-300">⚡ DEPI Trainee</span>
+          <span class="badge px-3 py-1.5 rounded-full text-xs font-mono text-slate-300">📍 Kafr El-Zayat, Egypt</span>
+        </div>
+
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a href="#projects" class="px-6 py-3 rounded-md font-medium text-ink cta-primary hover:opacity-90 transition text-sm">
+            View Projects
+          </a>
+          <a href="https://github.com/AhmedAli56u" target="_blank" rel="noopener" class="px-5 py-3 rounded-md font-medium border border-[#263047] text-slate-200 hover:border-cyan-accent transition text-sm flex items-center gap-2">
+            <i class="fab fa-github text-lg"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/ahmed-ali-elabd/" target="_blank" rel="noopener" class="px-5 py-3 rounded-md font-medium border border-[#263047] text-slate-200 hover:border-cyan-accent transition text-sm flex items-center gap-2">
+            <i class="fab fa-linkedin text-lg text-cyan-accent"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="mx-auto md:mx-0">
+        <div class="profile-ring rounded-full p-[3px] w-48 h-48 sm:w-60 sm:h-60">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEAwQFBAQFBgoHBgYGBg0JCggKDw0QEA8NDw4RExgUERIXEg4PFRwVFxkZGxsbEBQdHx0aHxgaGxr/2wBDAQQFBQYFBgwHBwwaEQ8RGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhr/wAARCAJYAlgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6w3UoamnApa5ToFPHIpyEYyOtRqMtipRG27IGGH5GkwQ4y4GO9PDgjBrzjWW8QeDp5LjRX/tjTMl3065Y+bGOp8t+pH+zWj4a+JuheI9sQmOnXp4NtdfKSfQN0P0rCVSKdnuaqLaudqxAPHSkEnqKhMwPUgU4MpHWpuOxLvz9KN3OPWowVPGaOV75FFx2J0bse1TA1TWQdamDjtRcViyDxTs8VAJARxS7+1O4rE4I79adiq4fOO1TA0XEOHFOFNBpQaYDqM0najHFADh1pw61GDipFNIB2BSFKUU4UwI8YpcVMAD1pCOOKAIsZNSBe1AAH1p2NtS2NC8CjimM/pQGxSGSUgqNpFA61ynxA8Xp4U8LX19Gc3RXyrVf70rcD8upqZSUU2xpOTsjwz4zeKf+Ej8WPZ2z77HSwYhg8NL/ABH8OledbDVgRtgmRi8jEs7E8ljyTSEV8/ObnJyZ6CXKrEG32pjDnAqcjGTUezkk1AxgX86McVLjikUZ96B2GKuB705Vp+D+FOUYBoCxCy5pyLTiOaeopMY8CpVXJzTRUqlUVnkYIi8sxOABWbGiWJC5AXkmq8t880ht9KKvIvElweUj9h6mqF3ezXiMsAa3sTwX6PN9P7q/zqo9zdKgh08RwIOAccV6FDCX96oYTqW0R0VvBbaZEx3ZkbmSRjlnPqay7zxJGGMduGkb/ZHFZI0nUtRYLdXjFO4jGM10ml+GVhRUVMAdSeSa9ZK2xyPzOYktNR1h1YhlXOQucV1Gj+FXVc3bE55KjpXT2epxw4wtblpYFiOK1SIbMvTdDggACRAV0dvYhAMjFWre0WP/ABq6iAdKuxFyCKEAdKtJFgc05RyOKnVc9KdhDFjx2qZVp6oTU6IARmqASKI8cVYVMdaVRjpUqoSeBmgAVfUVZhgMh5GBU1vZl8Fh+FaccKxAetK4DLe2VByMVa4FNB5pwGTU3KFApcY7UBaXpQA3FJzmnUAetIBPrS/SlC5p4AFADAKf0HFGMU0nHSmAfUUuASPek+tHbgke9ICtau+bNd/IU2y7TnvgdasGoLS3S2a4WPOGlLnJycnk1YoAKKDjtRQBQ/nS7SetWZISDmkROea3uRYIoehI5q2qgLyOaWNemOlEpCRsT2pAc1rVpLfpKsUmx1OY2x0NeVeJfCkOtSNuhjstXX73GI5/8D717DG2XOe9UNY0aHUojlcOOjDqKznTjUVpBGbi7o8O0rxT4g8Kzm0MzyJEcNa3eWA/3W6gV6Do3xOsr8rFeg2Nwe0n3SfY1na9oKXZFtrAMcoGILxRyPQNXnup6XcaVcG3v0Gf4HH3XHqDXlzVXDvujti41PU+godSWQBgQysOGU8VcjvUYYJr560rX9S0Zh9huSYu8UnzKf8ACvQNF+IdheFIdTU2M54yeUJ+vatIYiMhuFj00So4zu5pR7NWNDMHjDxOHQ9GU5B/GrCXBHU1vcixqbiO9KJPeqK3BPU0/w3BPep811M79q4b1/GlKqqau2axhKWw0Xm4E/wqOSapzan/DbcnvKaq3V8CdpPA7CqcYlujhPlTu3rTjTqVto2/rb5icqdPV6lye+a22tIdznofWlt/ENxEceZlfarEehma0c+X5smOprldbsrrSp2bLKP7rf0roqYOMabnB3sZQxS5+SR6TpfjDyiBMce/aup0/xlG4Hzj8K8Bh177m89TiuhtteEEYaN9xAyBmvL5pRPRskfRel+IIplB3j8K3ra+R8ENya8I0Tx7u2q42MOPavQND8ViXZmTNawrdymk9j1CJs/wCFWU9qwtK1KO4UEMDWxHJnGK6E7mbTLStjGalVgKrI/epkbsaBD3YYz0oEgzg1HK+1DntUSygkHOeKA2NK3AYjJrTt7cHBIqlplu053sOM1uooAwO1DYJCEBVpBTwMmnYyM+tSUJ1pwFA+tLjmkAY9KXHFHSlAoATFFOA5ooATFAFLijFAAMilx3pwHp1p2KAEAwMUEc5peelIR6UgDHFL+FGMmlAxTAAAOlIffrTu/vSEEUAJx0oB/GkxR9KAFI4ppFLmkoAb3oIBpe2aT6UAJijr1ozmigBpUGgg04igikAyggGnnim9/SgAxzThR680ue9MBwHFHSkBoJz+FJgefeIvhlDqWp32pRyyM1xKZTDu4DY7fnXHajod/YnZJC+1OmBXudU7+yguYz5qAgdK5a1BS1R0U6j2Z4LLFHMhjnjEi/wB11/pWVcaLE2TazGFv7jcqa9j1nwfBODLana+OlcdqPh+azJE0eD/eXkGuGcJR+JHTGSezOBlt9St8+ZB5qj+KMg/pUDaokPFwrwnuJFIruHsvLPIIH96kks0ddskaOD/CQGFL2k49S2kzj4tThdQ0UiuPY5qxHfA45x6Vral4R0y7DOkYtpcf6yP5fzFcrf+HdXsdzWx+1xdfl+8PrV/W2t0Q6FzcjvAe/en2d6k/i3Q9MLFROxZse2aq6DoGuasx8uP7Mg7uK6fSvh3dWPizSNevrpZBbo/wAg7ZHFb/XJzhaEdCfq6u7nqy+RBEqK6jAqxFdRDoxNcD4j8TR2SskTguOOvSsO28c7G/etx6muX2NSfvWN/awjpc9jF8g6uB9acmoRZ+/n+teZDxnbzw5hkViOvNZGsePZoQVtTlj/dqfZVOwfWIHs9nfwT3EtskmZolDuv1ro7C13kfKMdq+ZvDnxBuNK1Zby5zKkvyzKfSvofwp4t0vWLaOW3lUZHKk4xVRpvm94J1FJWidtBaqijip9nPSq8V7CRxIrD2qYTK2NrD863asZodjFOA79qbmlz71IxcAilC4puaXd260AKBS0maUEUAIee3Slx+VJkUtACg84pc0gGKXqaAFz3o/i4pe+KCcHFACfhSZpwNJyTQAuKO/WlpMUAHSlH1pMUox+NAB3pwPFNz2p2fagAPFGMkUYxTh0oAXt9KaTmg8nnpSc+nFAAe+KM4owKbj3xSAfmgmmE4xmg/WgB2fSko+vFGc0AB60A/hQeaM/T86AHUhpAc0ooADycetN6+1L1pMUAH1ozxSkUnSkAvSlyKbn/8AXSAjOM0gHHilz1phz2NHIoAd+NH+ewpnSl/CmA7Ipe/SmZo+tAC/zpce9Nxzn1pcn1/Whgf/Z" alt="Ahmed Ali" class="w-full h-full object-cover rounded-full border-4 border-[#0a0e14] bg-panel">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-24 px-6 border-t border-[#1f2836]">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-mono text-cyan-accent text-sm mb-2">01</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-100 mb-14">Experience &amp; Internships</h2>
+
+      <ol class="relative border-l border-[#1f2836] ml-2">
+
+        <li class="mb-12 ml-8">
+          <span class="absolute -left-[7px] flex h-3.5 w-3.5 rounded-full bg-cyan-accent timeline-dot"></span>
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 class="font-display text-lg text-slate-100 font-medium">Data Science Trainee</h3>
+            <span class="font-mono text-xs text-slate-400">@ Digital Egypt Pioneers Initiative (DEPI)</span>
+          </div>
+          <p class="font-mono text-xs text-slate-500 mt-1">July 2026 – Present</p>
+          <p class="mt-3 text-slate-400 leading-relaxed max-w-2xl">
+            Developing end-to-end machine learning workflows, exploratory data analysis (EDA), and predictive models using Scikit-Learn.
+          </p>
+        </li>
+
+        <li class="ml-8">
+          <span class="absolute -left-[7px] flex h-3.5 w-3.5 rounded-full bg-slate-accent timeline-dot"></span>
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 class="font-display text-lg text-slate-100 font-medium">IT &amp; Data Analytics Intern</h3>
+            <span class="font-mono text-xs text-slate-400">@ Al Ezz Ceramics and Porcelain Co. (Gemma)</span>
+          </div>
+          <p class="font-mono text-xs text-slate-500 mt-1">July 2026 – August 2026</p>
+          <p class="mt-3 text-slate-400 leading-relaxed max-w-2xl">
+            Developed executive performance BI dashboards in Power BI for operational KPIs and inspected manufacturing data pipelines.
+          </p>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section id="projects" class="py-24 px-6 border-t border-[#1f2836]">
+    <div class="max-w-6xl mx-auto">
+      <p class="font-mono text-cyan-accent text-sm mb-2">02</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-100 mb-14">Featured Projects</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Project 1 -->
+        <article class="card rounded-xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <i class="fas fa-folder-open text-cyan-accent text-2xl"></i>
+              <a href="https://github.com/IBM-Telco-Customer-Churn/customer-churn-retention-system" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            </div>
+            <h3 class="font-display text-lg text-slate-100 font-medium mb-2">Customer Churn Intelligence &amp; Retention System</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              End-to-end data science pipeline predicting churn for 5,000+ subscribers. Features SQL cleaning, Pandas preprocessing, MLflow tracking, and an interactive Plotly/Dash executive dashboard.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4 font-mono text-xs text-slate-400">
+            <span class="skill-pill px-2.5 py-1 rounded-md">Python</span>
+            <span class="skill-pill px-2.5 py-1 rounded-md">SQL</span>
+            <span class="skill-pill px-2.5 py-1 rounded-md">MLflow</span>
+            <span class="skill-pill px-2.5 py-1 rounded-md">Dash</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card rounded-xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <i class="fas fa-folder-open text-cyan-accent text-2xl"></i>
+              <a href="https://github.com/AhmedAli56u/pneumonia-detection" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            </div>
+            <h3 class="font-display text-lg text-slate-100 font-medium mb-2">Chest X-Ray Pneumonia Detection App</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Deep learning web application diagnosing Pneumonia from chest X-rays using fine-tuned MobileNetV2 (~88% accuracy). Deployed online via Streamlit Cloud.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4 font-mono text-xs text-slate-400">
+            <span class="skill-pill px-2.5 py-1 rounded-md">Computer Vision</span>
+            <span class="skill-pill px-2.5 py-1 rounded-md">MobileNetV2</span>
+            <span class="skill-pill px-2.5 py-1 rounded-md">Streamlit</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card rounded-xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <i class="fas fa-folder-open text-cyan-accent text-2xl"></i>
+              <a href="https://github.com/AhmedAli56u/amazon-sentiment-analysis" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            </div>
+            <h3 class="font-display text-lg text-slate-100 font-medium mb-2">Amazon Reviews Sentiment Analysis Pipeline</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              NLP classification pipeline categorizing product reviews using TF-IDF feature extraction and Logistic Regression with balanced class weighting (~93% accuracy).
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4 font-mono text-xs text-slate-400">
+            <span class="skill-pill px-2.5 py-1 rounded-md">NLP</span>
+            <span class="skill-pill px-2.5 py-1 rounded-md">TF-IDF</span>
+            <span class="skill-pill px-2.5 py-1 rounded-md">Scikit-Learn</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-24 px-6 border-t border-[#1f2836]">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-mono text-cyan-accent text-sm mb-2">03</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-100 mb-14">Education</h2>
+
+      <div class="card rounded-xl p-6">
+        <div class="flex flex-wrap justify-between items-baseline mb-2">
+          <h3 class="font-display text-lg text-slate-100 font-medium">B.Sc. in Information Systems</h3>
+          <span class="font-mono text-xs text-slate-400">Expected Graduation: June 2027</span>
+        </div>
+        <p class="text-cyan-accent text-sm">Faculty of Computers and Artificial Intelligence, Sadat City University</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills -->
+  <section id="skills" class="py-24 px-6 border-t border-[#1f2836]">
+    <div class="max-w-5xl mx-auto">
+      <p class="font-mono text-cyan-accent text-sm mb-2">04</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-100 mb-14">Technical Skills</h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="card p-5 rounded-xl">
+          <h3 class="font-mono text-sm text-cyan-accent mb-4"><i class="fas fa-code mr-2"></i>Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Python</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">C++</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">SQL</span>
+          </div>
+        </div>
+
+        <div class="card p-5 rounded-xl">
+          <h3 class="font-mono text-sm text-cyan-accent mb-4"><i class="fas fa-brain mr-2"></i>Data Science &amp; ML</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Scikit-Learn</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">TensorFlow</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Keras</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">NLP</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">MLflow</span>
+          </div>
+        </div>
+
+        <div class="card p-5 rounded-xl">
+          <h3 class="font-mono text-sm text-cyan-accent mb-4"><i class="fas fa-chart-bar mr-2"></i>Data Analysis &amp; BI</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Pandas</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">NumPy</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Power BI</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Plotly</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Dash</span>
+          </div>
+        </div>
+
+        <div class="card p-5 rounded-xl">
+          <h3 class="font-mono text-sm text-cyan-accent mb-4"><i class="fas fa-wrench mr-2"></i>Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Git</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">GitHub</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">Linux</span>
+            <span class="skill-pill px-3 py-1.5 rounded-md text-sm text-slate-300">VS Code</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Honors & Leadership -->
+  <section class="py-24 px-6 border-t border-[#1f2836]">
+    <div class="max-w-5xl mx-auto">
+      <p class="font-mono text-cyan-accent text-sm mb-2">05</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-100 mb-14">Honors &amp; Leadership</h2>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="card rounded-xl p-6">
+          <h3 class="font-display text-lg text-slate-100 font-medium mb-2">ECPC Finals Qualifier</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Egyptian Collegiate Programming Contest (Aug 2026) — Qualified for national finals in competitive programming.</p>
+        </div>
+        <div class="card rounded-xl p-6">
+          <h3 class="font-display text-lg text-slate-100 font-medium mb-2">ICPC Coach &amp; Member</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">NUSC &amp; USC ICPC Community — Conducted peer-learning sessions in C++ and problem-solving for 40+ students.</p>
+        </div>
+        <div class="card rounded-xl p-6">
+          <h3 class="font-display text-lg text-slate-100 font-medium mb-2">Active Member</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">USC Robotics Community &amp; Student Council (اتحاد الطلاب).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 px-6 border-t border-[#1f2836]">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="font-mono text-cyan-accent text-sm mb-2">06</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-slate-100 mb-4">Let's Connect</h2>
+      <p class="text-slate-400 mb-8 max-w-md mx-auto">
+        Open to data science internships, machine learning engineering roles, and innovative tech collaborations.
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-4">
+        <a href="mailto:ahmedalielabd000@gmail.com"
+           class="px-6 py-3 rounded-md font-medium text-ink cta-primary hover:opacity-90 transition text-sm flex items-center gap-2">
+          <i class="fas fa-envelope"></i> ahmedalielabd000@gmail.com
+        </a>
+        <a href="tel:+201551336157"
+           class="px-6 py-3 rounded-md font-medium border border-[#263047] text-slate-200 hover:border-cyan-accent transition text-sm flex items-center gap-2">
+          <i class="fas fa-phone"></i> +20 1551336157
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-[#1f2836] py-10 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+    <p class="font-display text-slate-300 font-medium">Ahmed <span class="grad-text">Ali</span></p>
+
+    <div class="flex items-center gap-6">
+      <a href="https://github.com/AhmedAli56u" target="_blank" rel="noopener" aria-label="GitHub"
+         class="text-slate-400 hover:text-cyan-accent transition">
+        <i class="fab fa-github text-lg"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/ahmed-ali-elabd/" target="_blank" rel="noopener" aria-label="LinkedIn"
+         class="text-slate-400 hover:text-cyan-accent transition">
+        <i class="fab fa-linkedin text-lg"></i>
+      </a>
+      <a href="mailto:ahmedalielabd000@gmail.com" aria-label="Email"
+         class="text-slate-400 hover:text-cyan-accent transition">
+        <i class="fas fa-envelope text-lg"></i>
+      </a>
+    </div>
+  </div>
+  <p class="text-center text-slate-600 text-xs font-mono mt-8">© 2026 Ahmed Ali. All rights reserved.</p>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  let menuOpen = false;
+
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    menuBtn.setAttribute('aria-expanded', menuOpen);
+    if (menuOpen) {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenu.style.opacity = '1';
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenu.style.opacity = '0';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+  }
+
+  menuBtn.addEventListener('click', toggleMenu);
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuOpen) toggleMenu();
+    });
+  });
+</script>
+
+</body>
+</html>
