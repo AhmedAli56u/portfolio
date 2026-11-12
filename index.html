@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahmed Ali | Data Science & ML Engineer</title>
+  <meta name="description" content="Portfolio of Ahmed Ali, Data Science & ML Engineer and Data Analyst based in Cairo, Egypt.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"IBM Plex Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #111a2e;
+      --line: #1e2a44;
+      --cyan: #22d3ee;
+      --indigo: #6366f1;
+    }
+    body { background: var(--bg); font-family: 'IBM Plex Sans', system-ui, sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Space Grotesk', system-ui, sans-serif; }
+
+    /* Ambient glow behind the hero */
+    .hero-glow::before, .hero-glow::after {
+      content: ""; position: absolute; border-radius: 9999px; filter: blur(110px);
+      opacity: .28; pointer-events: none; z-index: 0;
+    }
+    .hero-glow::before { width: 420px; height: 420px; background: var(--indigo); top: -120px; right: -80px; }
+    .hero-glow::after  { width: 360px; height: 360px; background: var(--cyan); bottom: -140px; left: -100px; opacity: .18; }
+
+    /* Conic gradient ring around the photo */
+    .ring {
+      position: relative; padding: 6px; border-radius: 9999px;
+      background: conic-gradient(from 0deg, var(--cyan), var(--indigo), #a78bfa, var(--cyan));
+      box-shadow: 0 0 40px rgba(34, 211, 238, .35), 0 0 90px rgba(99, 102, 241, .35);
+      animation: spin-ring 14s linear infinite;
+    }
+    .ring-inner { border-radius: 9999px; background: var(--bg); padding: 6px; animation: spin-ring 14s linear infinite reverse; }
+    .ring img { display: block; width: 100%; height: 100%; border-radius: 9999px; object-fit: cover; object-position: 50% 30%; }
+    @keyframes spin-ring { to { transform: rotate(360deg); } }
+
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; transition: border-color .2s, box-shadow .2s, transform .2s; }
+    .card:hover { border-color: rgba(34, 211, 238, .5); box-shadow: 0 0 0 1px rgba(34, 211, 238, .25), 0 12px 40px -12px rgba(99, 102, 241, .45); }
+    .grad-text { background: linear-gradient(90deg, var(--cyan), #818cf8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .btn-primary { background: linear-gradient(90deg, var(--cyan), var(--indigo)); color: #04101c; font-weight: 600; box-shadow: 0 8px 28px -8px rgba(34, 211, 238, .6); }
+    .btn-primary:hover { filter: brightness(1.1); }
+    .timeline { border-left: 2px solid var(--line); }
+    .dot { position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; border-radius: 9999px; background: var(--bg); border: 2px solid var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .chip { background: rgba(99, 102, 241, .12); border: 1px solid rgba(99, 102, 241, .35); color: #c7d2fe; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 8px; }
+    @media (prefers-reduced-motion: reduce) {
+      .ring, .ring-inner { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body class="text-slate-300 antialiased">
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#0b1120]/80 border-b border-slate-800">
+    <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between" aria-label="Main">
+      <a href="#home" class="font-display text-lg font-bold text-white">Ahmed<span class="grad-text"> Ali</span></a>
+      <ul class="hidden md:flex items-center gap-8 text-sm">
+        <li><a class="hover:text-cyan-300 transition" href="#experience">Experience</a></li>
+        <li><a class="hover:text-cyan-300 transition" href="#projects">Projects</a></li>
+        <li><a class="hover:text-cyan-300 transition" href="#skills">Skills</a></li>
+        <li><a class="hover:text-cyan-300 transition" href="#education">Education</a></li>
+        <li><a class="hover:text-cyan-300 transition" href="#honors">Honors</a></li>
+        <li><a class="btn-primary rounded-full px-5 py-2 text-sm" href="#contact">Contact</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden p-2 text-slate-200" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-[#0b1120]">
+      <ul class="px-5 py-4 flex flex-col gap-4 text-base">
+        <li><a class="mobile-link block" href="#experience">Experience</a></li>
+        <li><a class="mobile-link block" href="#projects">Projects</a></li>
+        <li><a class="mobile-link block" href="#skills">Skills</a></li>
+        <li><a class="mobile-link block" href="#education">Education</a></li>
+        <li><a class="mobile-link block" href="#honors">Honors</a></li>
+        <li><a class="mobile-link block text-cyan-300 font-semibold" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero-glow relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <div class="relative z-10 max-w-6xl mx-auto px-5 grid md:grid-cols-[1.25fr_1fr] gap-14 items-center">
+        <div class="order-2 md:order-1">
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span class="chip rounded-full px-4 py-1.5 text-sm">🏆 ECPC Finals Qualifier</span>
+            <span class="chip rounded-full px-4 py-1.5 text-sm" style="background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.35);color:#a5f3fc">⚡ DEPI Trainee</span>
+          </div>
+          <h1 class="text-5xl sm:text-6xl font-bold text-white leading-[1.05] tracking-tight">Ahmed Ali</h1>
+          <p class="mt-4 text-xl sm:text-2xl font-display font-medium grad-text">Data Science &amp; ML Engineer | Data Analyst</p>
+          <p class="mt-3 flex items-center gap-2 text-slate-400">
+            <svg class="w-4 h-4 text-cyan-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10zm0-7.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/></svg>
+            Cairo, Egypt
+          </p>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
+            Data Science and Machine Learning Trainee with a strong analytical foundation in Information Systems and competitive programming. Experienced in end-to-end ML workflows, computer vision, NLP, and executive Power BI/Dash dashboards.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" class="btn-primary rounded-full px-7 py-3 transition">View projects</a>
+            <a href="mailto:ahmedalielabd000@gmail.com" class="rounded-full px-7 py-3 border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition">Email me</a>
+            <a href="https://github.com/AhmedAli56u" target="_blank" rel="noopener" class="rounded-full px-5 py-3 border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition" aria-label="GitHub">GitHub</a>
+            <a href="https://www.linkedin.com/in/ahmed-ali-elabd/" target="_blank" rel="noopener" class="rounded-full px-5 py-3 border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 flex justify-center">
+          <div class="ring w-64 h-64 sm:w-80 sm:h-80">
+            <div class="ring-inner w-full h-full">
+              <img src="photo.jpg" alt="Portrait of Ahmed Ali" width="720" height="720" fetchpriority="high">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-20 border-t border-slate-800/70">
+      <div class="max-w-4xl mx-auto px-5">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-12">Experience</h2>
+        <div class="timeline ml-2 pl-8 space-y-12">
+          <article class="relative">
+            <span class="dot"></span>
+            <p class="text-sm text-cyan-300">July 2026 – Present</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">Data Science Trainee</h3>
+            <p class="text-slate-400">Digital Egypt Pioneers Initiative (DEPI)</p>
+            <p class="mt-3 leading-relaxed">Developing end-to-end machine learning workflows, exploratory data analysis (EDA), and predictive models using Scikit-Learn.</p>
+          </article>
+          <article class="relative">
+            <span class="dot"></span>
+            <p class="text-sm text-cyan-300">July 2026 – August 2026</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">IT &amp; Data Analytics Intern</h3>
+            <p class="text-slate-400">Al Ezz Ceramics and Porcelain Co. (Gemma)</p>
+            <p class="mt-3 leading-relaxed">Developed executive performance BI dashboards in Power BI for operational KPIs and inspected manufacturing data pipelines.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 border-t border-slate-800/70">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-12">Featured projects</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <article class="card p-7 flex flex-col">
+            <p class="text-sm text-cyan-300">2026</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">Customer Churn Intelligence &amp; Retention System</h3>
+            <p class="mt-3 leading-relaxed flex-1">End-to-end data science pipeline predicting churn for 5,000+ subscribers. Features SQL cleaning, Pandas preprocessing, MLflow tracking, and an interactive Plotly/Dash executive dashboard.</p>
+            <ul class="mt-5 flex flex-wrap gap-2 text-xs">
+              <li class="chip rounded-full px-3 py-1">SQL</li><li class="chip rounded-full px-3 py-1">Pandas</li><li class="chip rounded-full px-3 py-1">MLflow</li><li class="chip rounded-full px-3 py-1">Plotly Dash</li>
+            </ul>
+            <a href="https://github.com/IBM-Telco-Customer-Churn/customer-churn-retention-system" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 font-medium">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="card p-7 flex flex-col">
+            <p class="text-sm text-cyan-300">2026</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">Chest X-Ray Pneumonia Detection App</h3>
+            <p class="mt-3 leading-relaxed flex-1">Deep learning web application diagnosing Pneumonia from chest X-rays using fine-tuned MobileNetV2 (~88% accuracy). Deployed online via Streamlit Cloud.</p>
+            <ul class="mt-5 flex flex-wrap gap-2 text-xs">
+              <li class="chip rounded-full px-3 py-1">TensorFlow</li><li class="chip rounded-full px-3 py-1">MobileNetV2</li><li class="chip rounded-full px-3 py-1">Streamlit</li>
+            </ul>
+            <a href="https://github.com/AhmedAli56u/pneumonia-detection" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 font-medium">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="card p-7 flex flex-col">
+            <p class="text-sm text-cyan-300">2026</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">Amazon Reviews Sentiment Analysis Pipeline</h3>
+            <p class="mt-3 leading-relaxed flex-1">NLP classification pipeline categorizing product reviews using TF-IDF feature extraction and Logistic Regression with balanced class weighting (~93% accuracy).</p>
+            <ul class="mt-5 flex flex-wrap gap-2 text-xs">
+              <li class="chip rounded-full px-3 py-1">NLP</li><li class="chip rounded-full px-3 py-1">TF-IDF</li><li class="chip rounded-full px-3 py-1">Scikit-Learn</li>
+            </ul>
+            <a href="https://github.com/AhmedAli56u/amazon-sentiment-analysis" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 font-medium">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-20 border-t border-slate-800/70">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-12">Technical skills</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="card p-7">
+            <h3 class="text-lg font-semibold text-white mb-4">Languages</h3>
+            <ul class="flex flex-wrap gap-2"><li class="chip rounded-lg px-3 py-1.5">Python</li><li class="chip rounded-lg px-3 py-1.5">C++</li><li class="chip rounded-lg px-3 py-1.5">SQL</li></ul>
+          </div>
+          <div class="card p-7">
+            <h3 class="text-lg font-semibold text-white mb-4">Data Science &amp; ML</h3>
+            <ul class="flex flex-wrap gap-2"><li class="chip rounded-lg px-3 py-1.5">Scikit-Learn</li><li class="chip rounded-lg px-3 py-1.5">TensorFlow</li><li class="chip rounded-lg px-3 py-1.5">Keras</li><li class="chip rounded-lg px-3 py-1.5">NLP</li><li class="chip rounded-lg px-3 py-1.5">MLflow</li></ul>
+          </div>
+          <div class="card p-7">
+            <h3 class="text-lg font-semibold text-white mb-4">Data Analysis &amp; BI</h3>
+            <ul class="flex flex-wrap gap-2"><li class="chip rounded-lg px-3 py-1.5">Pandas</li><li class="chip rounded-lg px-3 py-1.5">NumPy</li><li class="chip rounded-lg px-3 py-1.5">Power BI</li><li class="chip rounded-lg px-3 py-1.5">Plotly</li><li class="chip rounded-lg px-3 py-1.5">Dash</li></ul>
+          </div>
+          <div class="card p-7">
+            <h3 class="text-lg font-semibold text-white mb-4">Tools</h3>
+            <ul class="flex flex-wrap gap-2"><li class="chip rounded-lg px-3 py-1.5">Git</li><li class="chip rounded-lg px-3 py-1.5">GitHub</li><li class="chip rounded-lg px-3 py-1.5">Linux</li><li class="chip rounded-lg px-3 py-1.5">VS Code</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="py-20 border-t border-slate-800/70">
+      <div class="max-w-4xl mx-auto px-5">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-10">Education</h2>
+        <div class="card p-7 sm:p-8">
+          <h3 class="text-xl font-semibold text-white">B.Sc. in Information Systems</h3>
+          <p class="mt-1 text-slate-400">Faculty of Computers and Artificial Intelligence, Sadat City University</p>
+          <p class="mt-3 text-cyan-300 text-sm">Expected graduation: June 2027</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONORS -->
+    <section id="honors" class="py-20 border-t border-slate-800/70">
+      <div class="max-w-4xl mx-auto px-5">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-10">Honors &amp; leadership</h2>
+        <div class="space-y-5">
+          <div class="card p-6 flex gap-5 items-start">
+            <span class="text-2xl" aria-hidden="true">🏆</span>
+            <div>
+              <h3 class="font-semibold text-white">ECPC Finals Qualifier</h3>
+              <p class="text-slate-400">Egyptian Collegiate Programming Contest · Aug 2026</p>
+            </div>
+          </div>
+          <div class="card p-6 flex gap-5 items-start">
+            <span class="text-2xl" aria-hidden="true">👨‍🏫</span>
+            <div>
+              <h3 class="font-semibold text-white">ICPC Coach &amp; Member</h3>
+              <p class="text-slate-400">NUSC &amp; USC ICPC Community</p>
+              <p class="mt-2">Conducted peer-learning sessions in C++ and problem-solving for 40+ students.</p>
+            </div>
+          </div>
+          <div class="card p-6 flex gap-5 items-start">
+            <span class="text-2xl" aria-hidden="true">🤖</span>
+            <div>
+              <h3 class="font-semibold text-white">Active Member</h3>
+              <p class="text-slate-400">USC Robotics Community</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="relative overflow-hidden py-24 border-t border-slate-800/70">
+      <div class="max-w-4xl mx-auto px-5 text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Let’s work together</h2>
+        <p class="mt-4 text-lg text-slate-400">Open to data science and AI internships and freelance data work.</p>
+        <div class="mt-10 grid sm:grid-cols-2 gap-4 text-left">
+          <a href="mailto:ahmedalielabd000@gmail.com" class="card p-5 block"><span class="text-sm text-slate-400">Email</span><br><span class="text-white break-all">ahmedalielabd000@gmail.com</span></a>
+          <a href="tel:+201551336157" class="card p-5 block"><span class="text-sm text-slate-400">Phone</span><br><span class="text-white">+20 1551336157</span></a>
+          <a href="https://www.linkedin.com/in/ahmed-ali-elabd/" target="_blank" rel="noopener" class="card p-5 block"><span class="text-sm text-slate-400">LinkedIn</span><br><span class="text-white">linkedin.com/in/ahmed-ali-elabd</span></a>
+          <a href="https://github.com/AhmedAli56u" target="_blank" rel="noopener" class="card p-5 block"><span class="text-sm text-slate-400">GitHub</span><br><span class="text-white">github.com/AhmedAli56u</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-8 text-center text-sm text-slate-500">
+    © <span id="year"></span> Ahmed Ali · Cairo, Egypt
+  </footer>
+
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    function setMenu(open) {
+      menu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+    }
+    btn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => setMenu(false)));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
